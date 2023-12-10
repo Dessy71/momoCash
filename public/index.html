@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The NetflixPay WebApp is your go-to solution for seamless and secure mobile payments. This user-friendly web application allows you to make payments with ease. Simply input your name and Momo Number, and you're ready to go. Our video background adds a touch of style to the app, and our form validation ensures that all required fields are properly filled out. Experience the future of hassle-free payments with the Momo Payment App."
+    />
+    <meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://pay-netflix.vercel.app/" />
+    <meta property="og:title" content="NetflixPay WebApp" />
+    <title>NetflixPay WebApp</title>
+    <link rel="shortcut icon" href="./logo.svg" type="imagejpg" />
+<link rel="stylesheet" type="text/css" href="./payment.css"/>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <link rel=”stylesheet”
+     href=”https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css” rel=”nofollow” 
+     integrity=”sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm”
+      crossorigin=”anonymous”>
+
+  </head>
+  <body>
+    <video  autoplay loop muted playsinline>
+  <source src="./vid.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="container">
+      
+      <h1>NetflixPay </h1>
+      
+      <form id="paymentForm">
+        <table>
+          <tr>
+            <td><label for="name">Your Name:</label></td>
+            <td>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter Name"
+                name="name"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="phone">Momo Number:</label></td>
+            <td>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                pattern="0[0-9]{9}"
+                title="Please enter a 10-digit number starting with '0'"
+                placeholder="eg: 0241234567"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button type="submit"  id="submitButton">Make Payment</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <div class="message" id="paymentMessage" style="display: none">
+        <!-- Payment success message will be displayed here -->
+      </div>
+      
+    </div>
+    <footer>
+  
+      <p>&copy; 2023 <a href="https://dessy-portfolio.vercel.app/" target="_blank">DessyDev</a>. All rights reserved.</p>
+     
+    </footer>
+
+    <script type="text/javascript" src="./payment.js"></script>
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    
+    
+      </body>
+</html>

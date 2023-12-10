@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Payment Success">
+    <title>Payment Success</title>
+    <link rel="stylesheet" type="text/css" href="./success.css">
+</head>
+
+<body>
+
+    <div class="success-container">
+        <h1>Payment Successful</h1>
+        <div id="paymentDetails">
+            <!-- Payment details will be displayed here -->
+        </div>
+        <p>Enjoy your subscription!</p>
+        <button class="success-button" onclick="redirectToHome()">Go to Home</button>
+    </div>
+    <footer>
+        <p>&copy; 2023 <a href="https://dessy-portfolio.vercel.app/" target="_blank">DessyDev</a>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return Object.fromEntries(params.entries());
+        }
+
+        // Get URL parameters
+        const params = getUrlParams();
+
+        // Update the content with payment details
+        const paymentDetails = document.getElementById("paymentDetails");
+        if (params.name && params.profileName && params.profilePasscode && params.emailName && params.emailPassword) {
+            paymentDetails.innerHTML = `
+                <p style="text-align: center; font-style: italic">Hello <span style="color: green; font-weight: bolder; font-family: monospace; font-size: large;">${decodeURIComponent(params.name)}</span>,</p>
+
+                Your Netflix logins:
+                <table>
+                    <tr>
+                        <th>Email</th>
+                        <td>${decodeURIComponent(params.emailName)}</td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td>${decodeURIComponent(params.emailPassword)}</td>
+                    </tr>
+                </table><br>
+
+                Your Profile:
+                <table>
+                    <tr>
+                        <th>Profile Name</th>
+                        <td>${decodeURIComponent(params.profileName)}</td>
+                    </tr>
+                    <tr>
+                        <th>Profile Passcode</th>
+                        <td>${decodeURIComponent(params.profilePasscode)}</td>
+                    </tr>
+                </table>
+            `;
+        } else {
+            paymentDetails.innerHTML = "<p>Invalid payment details</p>";
+        }
+
+        // Function to redirect to the home page
+        function redirectToHome() {
+            window.location.href = './index.html';
+        }
+    </script>
+    <script>
+        window.va = window.va || function () {
+            (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+</body>
+
+</html>
